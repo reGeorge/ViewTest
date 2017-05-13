@@ -13,11 +13,12 @@ import com.regeorge.adapter.GridViewAdapter;
 
 public class GridViewExample extends Activity{
     private Button shiftbtn;
+    private int NUM = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.shiftview);
-        GridView gridView = (GridView) findViewById(R.id.include);
+        GridView gridView = (GridView) findViewById(R.id.gridview1);
         GridViewAdapter adapter = new GridViewAdapter(this);
         adapter.setMode(Attributes.Mode.Multiple);
         gridView.setAdapter(adapter);
@@ -49,11 +50,26 @@ public class GridViewExample extends Activity{
             }
         });
 
+
         shiftbtn = (Button) findViewById(R.id.shift);
         shiftbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setContentView(R.layout.textview);
+                //设置可见性来切换视图
+                switch (NUM) {
+                    case 0:
+                        NUM = 1;
+                        findViewById(R.id.gridview1).setVisibility(View.GONE);
+                        findViewById(R.id.textview2).setVisibility(View.VISIBLE);
+                        break;
+                    case 1:
+                        NUM = 0;
+                        findViewById(R.id.gridview1).setVisibility(View.VISIBLE);
+                        findViewById(R.id.textview2).setVisibility(View.GONE);
+                        break;
+                    default:
+                }
+
             }
         });
     }

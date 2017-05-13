@@ -7,7 +7,14 @@
         android:text="shift"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
+
     <include
+        android:id="@+id/gridview1"
         layout="@layout/gridview"
-        android:id="@+id/include"/>
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/textview2"
+        layout="@layout/textview"
+        android:visibility="gone" />
 </LinearLayout>
