@@ -5,19 +5,20 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.Button;
 import android.widget.GridView;
 
 import com.daimajia.swipe.util.Attributes;
 import com.regeorge.adapter.GridViewAdapter;
 
 public class GridViewExample extends Activity{
-
+    private Button shiftbtn;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.gridview);
-        final GridView gridView = (GridView)findViewById(R.id.gridview);
-        final GridViewAdapter adapter = new GridViewAdapter(this);
+        setContentView(R.layout.shiftview);
+        GridView gridView = (GridView) findViewById(R.id.include);
+        GridViewAdapter adapter = new GridViewAdapter(this);
         adapter.setMode(Attributes.Mode.Multiple);
         gridView.setAdapter(adapter);
         gridView.setSelected(false);
@@ -48,5 +49,12 @@ public class GridViewExample extends Activity{
             }
         });
 
+        shiftbtn = (Button) findViewById(R.id.shift);
+        shiftbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                setContentView(R.layout.textview);
+            }
+        });
     }
 }
